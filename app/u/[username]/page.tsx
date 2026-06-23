@@ -98,18 +98,32 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
                 </div>
                 <p className="mt-6 max-w-2xl text-sm leading-7 text-slate-600">{user.bio}</p>
                 {trustedPeople.length > 0 ? (
-                  <div className="mt-6 rounded-[24px] border border-[#c85b3f]/15 bg-[#fff7f2] p-4">
+                  <div className="mt-6 rounded-[24px] border border-[#c85b3f]/15 bg-[#fff7f2] p-5">
                     <div className="flex items-center justify-between gap-3">
                       <p className="text-sm font-semibold text-slate-900">🤝 Who I trust</p>
                       <p className="text-sm text-slate-500">{vouches.length} shared vouches</p>
                     </div>
-                    <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                    <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
                       {trustedPeople.map((vouch) => {
                         const categoryMeta = getCategoryMeta(vouch.category);
                         return (
-                          <div key={`${vouch.recipientName}-${vouch.recipientBusiness}`} className="flex h-full min-h-[64px] w-full flex-col items-start justify-center rounded-full border border-[#111827]/10 bg-white px-3 py-2 text-left shadow-sm">
-                            <p className="text-sm font-medium text-slate-900">{vouch.recipientName}</p>
-                            <p className="text-xs text-slate-500">{categoryMeta.icon} {vouch.recipientBusiness}</p>
+                          <div key={`${vouch.recipientName}-${vouch.recipientBusiness}`} className="flex h-full min-h-[80px] w-full items-center justify-between gap-3 rounded-[22px] border border-[#111827]/10 bg-white p-4 text-left shadow-sm">
+                            <div className="min-w-0">
+                              <p className="text-sm font-medium text-slate-900">{vouch.recipientName}</p>
+                              <p className="text-xs text-slate-500">{categoryMeta.icon} {vouch.recipientBusiness}</p>
+                            </div>
+                            <div className="flex shrink-0 flex-wrap justify-end gap-2">
+                              {vouch.recipientPhone ? (
+                                <a href={`tel:${vouch.recipientPhone}`} className="inline-flex items-center rounded-full bg-[#111827] px-3 py-2 text-[12px] font-semibold text-[#fffdf9] transition hover:bg-[#1f2937]">
+                                  Call
+                                </a>
+                              ) : null}
+                              {vouch.recipientWebsite ? (
+                                <a href={vouch.recipientWebsite} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-full border border-[#111827]/12 bg-[#f8f2e8] px-3 py-2 text-[12px] font-semibold text-[#111827] transition hover:bg-[#efe4d3]">
+                                  Visit website
+                                </a>
+                              ) : null}
+                            </div>
                           </div>
                         );
                       })}
