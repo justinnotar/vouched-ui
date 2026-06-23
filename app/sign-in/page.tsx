@@ -16,7 +16,7 @@ export default function SignInPage() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     signIn(selectedUser);
-    router.push("/dashboard");
+    router.push(`/u/${selectedUser.username}`);
   };
 
   return (

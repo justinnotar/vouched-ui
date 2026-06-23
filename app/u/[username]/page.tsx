@@ -82,15 +82,15 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
                 <p className="mt-6 max-w-2xl text-sm leading-7 text-slate-600">{user.bio}</p>
               </div>
               <div className="grid gap-4 p-6 sm:grid-cols-3">
-                <div className="rounded-2xl bg-slate-50 p-4">
+                <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
                   <p className="text-sm text-slate-500">Vouches shared</p>
                   <p className="mt-1 text-2xl font-semibold text-slate-900">{vouches.length}</p>
                 </div>
-                <div className="rounded-2xl bg-slate-50 p-4">
+                <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
                   <p className="text-sm text-slate-500">Categories</p>
                   <p className="mt-1 text-2xl font-semibold text-slate-900">{Object.keys(grouped).length}</p>
                 </div>
-                <div className="rounded-2xl bg-slate-50 p-4">
+                <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
                   <p className="text-sm text-slate-500">Joined</p>
                   <p className="mt-1 text-2xl font-semibold text-slate-900">{new Date(user.createdAt).toLocaleDateString("en-US", { month: "short", year: "numeric" })}</p>
                 </div>

@@ -22,7 +22,7 @@ export default function SignUpPage() {
       name: formName,
     };
     signIn(newUser);
-    router.push("/dashboard");
+    router.push(`/u/${newUser.username}`);
   };
 
   return (
