@@ -54,12 +54,6 @@ export function SiteHeader() {
           >
             Requests
           </Link>
-          <Link
-            href="/dashboard"
-            className={`rounded-full px-3 py-2 transition ${isActive("/dashboard") ? "bg-[#111827] text-[#fffdf9]" : "hover:text-[#111827]"}`}
-          >
-            Dashboard
-          </Link>
         </nav>
 
         <div className="flex items-center gap-2">

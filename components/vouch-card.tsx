@@ -58,7 +58,7 @@ export function VouchCard({ vouch, author, compact = false }: VouchCardProps) {
             </h3>
             {vouch.featuredOrder ? <BadgeCheck className="h-4 w-4 text-[#c85b3f]" /> : null}
           </div>
-          <p className="text-sm text-[#64748b]">{vouch.recipientBusiness}</p>
+          <p className="text-sm text-[#64748b]">{categoryMeta.icon} {vouch.recipientBusiness}</p>
         </div>
         <span className={cn("rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em]", categoryMeta.soft, categoryMeta.accent)}>
           {categoryMeta.icon} {categoryMeta.label}
