@@ -107,19 +107,19 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
                       {trustedPeople.map((vouch) => {
                         const categoryMeta = getCategoryMeta(vouch.category);
                         return (
-                          <div key={`${vouch.recipientName}-${vouch.recipientBusiness}`} className="flex h-full min-h-[80px] w-full items-center justify-between gap-3 rounded-[22px] border border-[#111827]/10 bg-white p-4 text-left shadow-sm">
+                          <div key={`${vouch.recipientName}-${vouch.recipientBusiness}`} className="grid h-full min-h-[80px] w-full grid-cols-[minmax(0,1fr)_auto] items-start gap-3 rounded-[22px] border border-[#111827]/10 bg-white p-4 text-left shadow-sm sm:flex sm:items-center sm:justify-between">
                             <div className="min-w-0">
                               <p className="text-sm font-medium text-slate-900">{vouch.recipientName}</p>
                               <p className="text-xs text-slate-500">{categoryMeta.icon} {vouch.recipientBusiness}</p>
                             </div>
-                            <div className="flex shrink-0 flex-wrap justify-end gap-2">
+                            <div className="flex flex-col gap-2 sm:w-auto sm:flex-row sm:justify-end">
                               {vouch.recipientPhone ? (
-                                <a href={`tel:${vouch.recipientPhone}`} className="inline-flex items-center rounded-full bg-[#111827] px-3 py-2 text-[12px] font-semibold text-[#fffdf9] transition hover:bg-[#1f2937]">
+                                <a href={`tel:${vouch.recipientPhone}`} className="inline-flex min-w-[112px] items-center justify-center rounded-full bg-[#111827] px-3 py-2 text-[12px] font-semibold text-[#fffdf9] transition hover:bg-[#1f2937]">
                                   Call
                                 </a>
                               ) : null}
                               {vouch.recipientWebsite ? (
-                                <a href={vouch.recipientWebsite} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-full border border-[#111827]/12 bg-[#f8f2e8] px-3 py-2 text-[12px] font-semibold text-[#111827] transition hover:bg-[#efe4d3]">
+                                <a href={vouch.recipientWebsite} target="_blank" rel="noreferrer" className="inline-flex min-w-[112px] items-center justify-center rounded-full border border-[#111827]/12 bg-[#f8f2e8] px-3 py-2 text-[12px] font-semibold text-[#111827] transition hover:bg-[#efe4d3]">
                                   Visit website
                                 </a>
                               ) : null}
